@@ -1,8 +1,9 @@
-package practice1;
+package tests;
 
+import base.TestBase;
 import org.testng.annotations.Test;
 
-public class ComplexActionTest {
+public class ComplexActionTest extends TestBase {
 
     @Test
     public void hoverOverTest(){
