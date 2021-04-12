@@ -1,44 +1,47 @@
 package tests;
 
 import base.TestBase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.SignupPage;
-import pages.TrelloHomePage;
+import pages.HomePage;
 
 public class SmokeTest extends TestBase {
 
     @Test
     public void verifyHomePageIsDisplayed() {
-        TrelloHomePage homePage = new TrelloHomePage(getDriver());
+        // Test Data
+        HomePage homePage = new HomePage(getDriver());
+
+        // Test Steps
         homePage.open();
         boolean result = homePage.isPageVisible();
+
+        // Test Assertion
         Assert.assertTrue(result);
     }
 
     @Test
     public void verifyLoginPageIsDisplayed() throws InterruptedException {
-        //Test Data
-        TrelloHomePage homePage = new TrelloHomePage(getDriver());
+        // Test Data
+        HomePage homePage = new HomePage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
 
-        //Test Steps
+        // Test Steps
         homePage.open();
         homePage.gotoLoginPage();
         Thread.sleep(4000);
         boolean result = loginPage.isLoginPageVisible();
 
-        //Test Assertion
+        // Test Assertion
         Assert.assertTrue(result);
     }
 
     @Test
     public void verifySignUpPageIsDisplayed() throws InterruptedException {
         // Test Data
-        TrelloHomePage homePage = new TrelloHomePage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
         SignupPage signupPage = new SignupPage(getDriver());
 
         // Test Steps
@@ -47,7 +50,8 @@ public class SmokeTest extends TestBase {
         Thread.sleep(2000);
         boolean result = signupPage.isSignupPageVisible();
 
-        // Test Assert
+        // Test Assertion
         Assert.assertTrue(result);
     }
+
 }
