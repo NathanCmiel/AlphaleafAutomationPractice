@@ -52,4 +52,5 @@ public class AboutPage {
         }
         return result;
     }
+        // This comment is to test if git is pushing correctly.
 }
